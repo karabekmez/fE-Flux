@@ -3,7 +3,7 @@
 %   Adjusts lb and ub of a model proportional to reaction expression values
 %   within FVA limits.
 %   Any adjustment that would failing growth simulation by FBA is not
-%   allowed in order to get feasible models.
+%   allowed, in order to get feasible models.
 %   Inputs: model, reaction_expression 
 %   Output: bounded model
 %   Dependencies: FBA and FVA functions (optimizeCbModel & fluxVariability in COBRA Toolbox)
