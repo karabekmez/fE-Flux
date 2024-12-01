@@ -10,8 +10,8 @@
 
 model_RAW=model;                
 Rxnexp=reaction_expression;     
-n_Rxnexp=log2(Rxnexp);  % If transcriptomic data is already log2 normalized then by-pass this line       
-[minFlux, maxFlux] = fluxVariability(model_RAW);        
+n_Rxnexp=log2(Rxnexp+1);  % If transcriptomic data is already log2 normalized then by-pass this line       
+[minFlux, maxFlux] = fluxVariability(model_RAW,80);  % accounts for sub-optimality eighty percent      
 for x=1:length(model_RAW.rxns)
     if (isnan(n_Rxnexp(x))==0 && Rxnexp(x)~=0) 
         model_RAW.lb(x)=((n_Rxnexp(x)/max(n_Rxnexp)))*minFlux(x);
